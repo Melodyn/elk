@@ -79,6 +79,8 @@ services:
         target: /usr/share/logstash/config/certs/ca/ca.crt
     networks: ['stack']
     depends_on: ['elasticsearch']
+    volumes:
+      - './data:/usr/share/data_csv'
     healthcheck:
       test: bin/logstash -t
       interval: 60s
